@@ -11,7 +11,7 @@ import (
 
 
 func Solution() {
-	left, right, err := ReadPuzzelInput()
+	left, right, err := ReadPuzzleInput()
 	if err != nil {
 		internal.ExitErr(err)
 	}
@@ -37,7 +37,7 @@ func Solution() {
 	fmt.Println(distance)
 }
 
-func ReadPuzzelInput() (left, right []int, err error) {
+func ReadPuzzleInput() (left, right []int, err error) {
 	data, err := os.ReadFile("inputs/1.txt")
 	if err != nil {
 		return left, right, err
