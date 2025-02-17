@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"main/day1"
+	"main/day2"
 	"os"
 )
 
@@ -15,7 +16,7 @@ func main() {
 	case "1":
 		day1.Solution()
 	case "2":
-		panic("Implement Me!!!")
+		day2.Solution()
 	case "3":
 		panic("Implement Me!!!")
 	case "4":
