@@ -2,14 +2,15 @@ package day2
 
 import (
 	"fmt"
-	"main/internal"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/jammutkarsh/AdventOfCode2024/internal"
 )
 
 func Solution() {
-	readings, err := ReadPuzzleInput()
+	readings, err := readPuzzleInput()
 	if err != nil {
 		internal.ExitErr(err)
 	}
@@ -44,7 +45,7 @@ func isSafe(reading []int) bool {
 	return true
 }
 
-func ReadPuzzleInput() (readings [][]int, err error) {
+func readPuzzleInput() (readings [][]int, err error) {
 	data, err := os.ReadFile("inputs/2.txt")
 	if err != nil {
 		return [][]int{}, err

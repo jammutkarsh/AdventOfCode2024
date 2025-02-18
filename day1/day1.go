@@ -2,16 +2,17 @@ package day1
 
 import (
 	"fmt"
-	"main/internal"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/jammutkarsh/AdventOfCode2024/internal"
 )
 
 
 func Solution() {
-	left, right, err := ReadPuzzleInput()
+	left, right, err := readPuzzleInput()
 	if err != nil {
 		internal.ExitErr(err)
 	}
@@ -37,7 +38,7 @@ func Solution() {
 	fmt.Println(distance)
 }
 
-func ReadPuzzleInput() (left, right []int, err error) {
+func readPuzzleInput() (left, right []int, err error) {
 	data, err := os.ReadFile("inputs/1.txt")
 	if err != nil {
 		return left, right, err
