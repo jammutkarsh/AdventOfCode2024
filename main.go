@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"main/day1"
-	"main/day2"
 	"os"
+
+	"github.com/jammutkarsh/AdventOfCode2024/day1"
+	"github.com/jammutkarsh/AdventOfCode2024/day2"
+	"github.com/jammutkarsh/AdventOfCode2024/day3"
 )
 
 func main() {
@@ -18,7 +20,7 @@ func main() {
 	case "2":
 		day2.Solution()
 	case "3":
-		panic("Implement Me!!!")
+		day3.Solution()
 	case "4":
 		panic("Implement Me!!!")
 	case "5":
