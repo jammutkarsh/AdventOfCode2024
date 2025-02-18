@@ -20,7 +20,10 @@ func main() {
 	case "2":
 		day2.Solution()
 	case "3":
+		fmt.Println("Day 3 Part 1")
 		day3.Solution()
+		fmt.Println("Day 3 Part 2")
+		day3.SolutionPart2()
 	case "4":
 		panic("Implement Me!!!")
 	case "5":

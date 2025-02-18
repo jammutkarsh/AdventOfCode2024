@@ -2,29 +2,42 @@ package day3
 
 import (
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 
 	"github.com/jammutkarsh/AdventOfCode2024/internal"
 )
 
 /*
-	Only compute the data from mul() function
+	mul() function is enabled by default, but
+	there are additional functions like don't() and do() which enables and disables mul()
+
 */
 
-// The regex pattern that we are looking for is mul(*,*), but 'mul(' is common across all.
-// So we will search for that.
-const instruction = "mul("
+const disableMul = "don't()"
+const enableMul = "do()"
 
-func Solution() {
+func SolutionPart2() {
 	corruptedData, err := readPuzzleInput()
 	if err != nil {
 		internal.ExitErr(err)
 	}
-	sum, instructionSize := 0, len(instruction)
+	// sum, instructionSize := 0, len(instruction)
+	var (
+		sum             = 0
+		instructionSize = len(instruction)
+		disableSize     = len(disableMul)
+		enableSize      = len(enableMul)
+	)
+
+	mulEnabled := true // Default Condition
 
 	for i := 0; i < len(corruptedData); i++ {
+
+		if i+disableSize < len(corruptedData) && corruptedData[i:i+disableSize] == disableMul {
+			mulEnabled = false
+		} else if i+enableSize < len(corruptedData) && corruptedData[i:i+enableSize] == enableMul {
+			mulEnabled = true
+		}
+		
 		if i+instructionSize < len(corruptedData) && corruptedData[i:i+instructionSize] == instruction {
 			validFormat := 0
 		extractValidSequence:
@@ -41,34 +54,10 @@ func Solution() {
 					break extractValidSequence // Doesn't follow the regex format: "mul(*,*)"
 				}
 			}
-			if validFormat != 0 {
+			if validFormat != 0 && mulEnabled {
 				sum += getMultiplier(corruptedData[i : validFormat+1])
 			}
 		}
 	}
 	fmt.Println(sum)
-}
-
-func getMultiplier(s string) int {
-	s = strings.TrimPrefix(s, instruction)
-	s = strings.TrimSuffix(s, ")")
-
-	num1, err := strconv.Atoi(strings.Split(s, ",")[0])
-	if err != nil {
-		return 0
-	}
-	num2, err := strconv.Atoi(strings.Split(s, ",")[1])
-	if err != nil {
-		return 0
-	}
-
-	return num1 * num2
-}
-
-func readPuzzleInput() (corruptedData string, err error) {
-	data, err := os.ReadFile("inputs/3.txt")
-	if err != nil {
-		return "", err
-	}
-	return string(data), nil
 }
