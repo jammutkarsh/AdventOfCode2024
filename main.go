@@ -9,6 +9,7 @@ import (
 	"github.com/jammutkarsh/AdventOfCode2024/day3"
 	"github.com/jammutkarsh/AdventOfCode2024/day4"
 	"github.com/jammutkarsh/AdventOfCode2024/day5"
+	"github.com/jammutkarsh/AdventOfCode2024/day6"
 )
 
 func main() {
@@ -32,9 +33,12 @@ func main() {
 		fmt.Println("Day 4 Part 2")
 		day4.SolutionPart2()
 	case "5":
+		fmt.Println("Day 5 Part 1")
 		day5.Solution()
+		fmt.Println("Day 5 Part 2")
+		day5.SolutionPart2()
 	case "6":
-		panic("Implement Me!!!")
+		day6.Solution()
 	case "7":
 		panic("Implement Me!!!")
 	case "8":
