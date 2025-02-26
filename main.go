@@ -10,6 +10,7 @@ import (
 	"github.com/jammutkarsh/AdventOfCode2024/day4"
 	"github.com/jammutkarsh/AdventOfCode2024/day5"
 	"github.com/jammutkarsh/AdventOfCode2024/day6"
+	"github.com/jammutkarsh/AdventOfCode2024/day7"
 )
 
 func main() {
@@ -40,7 +41,7 @@ func main() {
 	case "6":
 		day6.Solution()
 	case "7":
-		panic("Implement Me!!!")
+		day7.Solution()
 	case "8":
 		panic("Implement Me!!!")
 	case "9":
